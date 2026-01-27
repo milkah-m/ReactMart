@@ -1,16 +1,24 @@
-# React + Vite
+<!-- 5️⃣ Draft README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Task: In your repo, create README.md and write:
 
-Currently, two official plugins are available:
+Project Name: React Mart
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Problem Statement: “Users want to view groceries and add them to a cart”
 
-## React Compiler
+Solution: “React interface with pages, routing, and cart functionality”
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Feature List: Home, Products, Cart, About
 
-## Expanding the ESLint configuration
+Logic: README is your first impression for collaborators or mentors. Even a simple draft shows clear thinking and organization.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Check: ✅ README draft started -->
+
+Project Name: ReactMart
+
+Problem Statement: users want to view groceries and add them to a cart
+
+Problem Solution: Create a React front-end app that implements routing, pages, and an interactive cart.
+
+Features/Pages list: Home, Shop, Cart, About
+
