@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -41,19 +44,42 @@
   color: #888;
 }
 
-.home{
- padding: 2rem;
+.home {
+  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #ffffff;
+  color: #222;
 }
 
-.hero{
-background: #e9f5e9;
-padding: 2rem;
-border-radius: 10px;
-margin-bottom: 3rem;
-
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: transparent;
 }
 
-.hero button{
+.hero-banner {
+  padding: 120px 60px 80px;
+  background: #e9f5e9;
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  text-align: left;
+  color: white;
+  position: relative;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-btn  {
   padding: 0.7rem 1.5rem;
   margin-bottom: 1rem;
   border: none;
@@ -63,20 +89,53 @@ margin-bottom: 3rem;
   cursor: pointer;
 }
 
-.hero button:hover{
+.hero-btn:hover {
   background: #1b5e20;
 }
 
-.product-grid{
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
 }
 
-.product-card{
+.product-card {
   padding: 1.5rem;
   background: #fafafa;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.shop-btn{
+  background: #2d9c6b;
+  color: white;
+  padding: 12px 23px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.shop-btn:hover {
+  background: #267a53;
 }
