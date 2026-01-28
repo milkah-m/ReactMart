@@ -19,7 +19,7 @@ export default function Home() {
 
             <div className="hero-image">
                 <img src={basketImg} alt="Grocery basket" />
-            </div>
+            </div>   
         </section>
 
     </div>
