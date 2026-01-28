@@ -47,7 +47,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-.navbar {
+/* .navbar {
   position: absolute;
   top: 30px;
   left: 50%;
@@ -87,6 +87,19 @@
 
 .nav-links a:hover {
   opacity: 0.7;
+} */
+
+/* Navbar container */
+
+
+.Products-Page {
+  text-align: center; /* This centers all inline content inside the container */
+  padding: 2rem; /* optional spacing around the page */
+}
+
+.product-heading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem; /* space below the heading */
 }
 
 .logo {
@@ -112,8 +125,8 @@
 }*/
 
 
-.hero-content {
-  position: relative;
+/* .hero-content {
+  position: center;
   z-index: 1;
   max-width: 650px;
 }
@@ -132,6 +145,48 @@
 .hero-image img{
   width: 420px;
   max-width: 100%;
+} */
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full viewport height */
+  background: linear-gradient(to bottom, #a8e6a3, #ffffff);
+}
+
+.hero-content {
+  text-align: center; /* center text inside */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content .basket {
+  width: 200px; /* adjust as needed */
+  margin: 1rem 0;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.shop-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: #45a049;
 }
 
 .products-grid {
@@ -266,4 +321,8 @@
 
 .product-card button:hover {
   background: #267a53;
+}
+
+.page-title{
+text-align: center;
 }

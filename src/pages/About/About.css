@@ -1,0 +1,26 @@
+.about-page {
+  max-width: 800px;          /* Keep text from stretching too wide */
+  margin: 50px auto;          /* Center on page with top/bottom spacing */
+  padding: 20px;
+  background-color: #fef9f4;  /* Soft warm background */
+  border-radius: 12px;        /* Rounded corners for friendly look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+.about-page h1 {
+  text-align: center;
+  color: #2a7f62;             /* Fresh green accent for groceries */
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.about-page p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.about-page strong {
+  color: #2a7f62;             /* Highlight names and app name */
+}

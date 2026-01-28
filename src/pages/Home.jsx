@@ -6,22 +6,16 @@ import basketImg from '../assets/basket.png'
 export default function Home() {
     const navigate = useNavigate();
     return(
+
     <div className="home">
-        <section className="hero">
             <div className="hero-content">
-                <h1>
-                    Fresh Groceries, <br />
-                    Deliered To Your Door
-                </h1>
-
-                <button className="shop-btn">Shop Now</button>
+                <h1> REACTMART   </h1>
+                <img src={basketImg} alt="Grocery basket" className='basket' />
+                <p>ONE STOP FOR ALL YOUR GROCERIES</p>
+                <button className="shop-btn" onClick={() => navigate("/shop")}>
+                    Shop Now
+                    </button>
             </div>
-
-            <div className="hero-image">
-                <img src={basketImg} alt="Grocery basket" />
-            </div>   
-        </section>
-
-    </div>
+          </div>   
   );
 }
