@@ -21,18 +21,6 @@ function App() {
       </Routes>
     </div>
   );
-    return( <div>
-        <Routes>
-            <Route path='/' element ={<Home />} />
-            <Route path='/Shop' element ={<Shop />} />
-            <Route path='/Cart' element ={<Cart />} />
-            <Route path='/About' element ={<About />} />
-        </Routes>
-    </div>
-         
-       
-
-    )
 }
 
 export default App
