@@ -23,20 +23,21 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 export const ProductCard = ({ product }) => {
-  const { addToCart, cartItems, updateCartQuantity } = useContext(CartContext); // Getting addToCart, cartItems, and updateCartQuantity from CartContext
+  const { addToCart, cartItems, updateCartQuantity } = useContext(CartContext);
 
-  const cartItem = cartItems.find(item => item.id === product.id); // This will help find if the product is already in the cart
+  const cartItem = cartItems.find(item => item.id === product.id); // this helps to fid the product in the cart
 
-  return (        //Basic css...
+  return (
     <div
       style={{
-        border: "1px solid #ddd",
+        border: "1px solid #434343",
         borderRadius: "8px",
         padding: "12px",
         width: "200px",
         textAlign: "center",
-        boxShadow: "0 2px 5px rgba(0, 0, 0, 0.77)",
-        margin: "10px"
+        boxShadow: "0 2px 5px rgba(0,0,0,0.15)",
+        margin: "10px",
+        backgroundColor: "#6e6e6e"
       }}
     >
       <img
@@ -50,53 +51,54 @@ export const ProductCard = ({ product }) => {
         }}
       />
 
-      <h3 style={{ fontSize: "16px", margin: "10px 0 5px" }}>{product.name}</h3>
+      <h3 style={{ margin: "10px 0 5px" }}>{product.name}</h3>
       <p>${product.price}</p>
 
-      {!cartItem ? (
+      {cartItem ? (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            marginTop: "8px"
+          }}
+        >
+          <button
+            onClick={() =>
+              updateCartQuantity(
+                product.id,
+                Math.max(cartItem.quantity - 1, 0)
+              )
+            }
+          >
+            −
+          </button>
+
+          <span>{cartItem.quantity}</span>
+
+          <button
+            onClick={() =>
+              updateCartQuantity(product.id, cartItem.quantity + 1)
+            }
+          >
+            +
+          </button>
+        </div>
+      ) : (
         <button
           onClick={() => addToCart(product)}
           style={{
+            marginTop: "8px",
             padding: "6px 12px",
-            backgroundColor: "#343434",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
             cursor: "pointer"
           }}
         >
           Add to Cart
         </button>
-      ) : (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-          <button
-            onClick={() => updateCartQuantity(product.id, cartItem.quantity - 1)}
-            style={{
-              padding: "4px 8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-              cursor: "pointer",
-              backgroundColor: "#343434"
-            }}
-          >
-            −
-          </button>
-
-          <button
-            onClick={() => updateCartQuantity(product.id, cartItem.quantity + 1)}
-            style={{
-              padding: "4px 8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-              cursor: "pointer",
-              backgroundColor: "#343434"
-            }}
-          >
-            +
-          </button>
-        </div>
       )}
     </div>
   );
 };
+
 
