@@ -9,8 +9,6 @@ import About from './pages/About'
 
 function App() {
     return( <div>
-        <Shop />
-        <Cart />
         <Routes>
             <Route path='/' element ={<Home />} />
             <Route path='/Shop' element ={<Shop />} />

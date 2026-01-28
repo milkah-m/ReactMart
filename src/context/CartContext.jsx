@@ -1,7 +1,4 @@
-// import { createContext, useState } from 'react';
 
-// // Create the context
-// export const CartContext = createContext();
 
 //1. import context creation feature and useState
 import {createContext, useState} from 'react';
@@ -32,48 +29,21 @@ const addToCart = (product) => {
 }
 
 
-//5. create function that allows me to remove from the cart
-    //crossing out unwanted items
-    //here i know i definitely need to implement a decrementing sort of situation but how do i do this?
-    
-//     const removeFromCart = (id) => {
-//     setCartItems(prevItems => 
-//         prevItems.map(item => {
-//             if (item.id === id) {
-//                 // If quantity > 1, decrement
-//                 if (item.quantity > 1) {
-//                     return { ...item, quantity: item.quantity - 1 }
-//                 }
-//                 // If quantity is 1, filter it out later
-//                 return null
-//             }
-//             return item
-//         })
-//         .filter(Boolean) // removes any null values (items with quantity 1 that were "removed")
-//     )
-// }
     //1. the remove from cart function takes in the item id as an argument
     const removeFromCart = (id) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== id))
     
 }
 
-//6. create a function to update the quantity of an item in the cart
-   //to tell the cart that a product has so many units
 
-//
 const updateCartQuantity = (id, newQuantity) => {
  newQuantity === 0  
  ? removeFromCart(id)
 : setCartItems(prevItems => prevItems.map( item => item.id === id ? {...item, quantity: newQuantity} 
 : item)) 
-console.log("quantity updated!");
+
 
 }
-   
-
-   
-  
 
 return (
     <CartContext.Provider value = {{cartItems, addToCart, removeFromCart, updateCartQuantity}}>

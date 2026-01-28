@@ -82,9 +82,14 @@ export const ProductCard = ({ product }) => {
             −
           </button>
 
-          <span style={{ fontWeight: "bold", minWidth: "20px", display: "inline-block" }}>
-            {cartItem.quantity}
-          </span>
+export  const ProductCard = ({product}) =>{
+    const {addToCart} = useContext (CartContext)
+    return (<div >
+                {/* <h4>name: {product.name}</h4>
+                 <p>price: {product.price}</p> */}
+        <button onClick= {() => addToCart(product)}>Add to Cart</button>
+        </div>)
+}
 
           <button
             onClick={() => updateCartQuantity(product.id, cartItem.quantity + 1)}
