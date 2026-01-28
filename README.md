@@ -1,7 +1,7 @@
 # ReactMart 🛒
 
-**Author:** 
-**GitHub:** 
+**Author:** farhiya mohamed abdi
+**GitHub:** https://github.com/farhiyamohamed/ReactMart/tree/feature/my-feature
 
 ---
 
@@ -30,7 +30,7 @@ Vite is used for fast development and hot-reloading.
 - **Cart Page:** Shows selected items; starts empty  
 - **Navigation:** Navigate between Home, Shop, Cart, About pages  
 - **Global State:** Cart state managed using Context API  
-- **Reusable Components:** ProductCard, Header, Footer  
+- **Reusable Components:** Cartitem,Nav bar and Productcard
 
 ---
 
@@ -56,6 +56,8 @@ ReactMart/
 │ ├─ data/ # Product data array
 │ ├─ pages/ # Full-page components (Home, Shop, Cart, About)
 │ ├─ App.jsx # Main app layout and route definitions
+     App.css
+     Individual styling
 │ ├─ main.jsx # Entry point, sets up Router + CartProvider
 │ └─ index.css # Global CSS styles
 ├─ package.json # Dependencies and scripts
@@ -106,14 +108,4 @@ This project is for educational purposes.
 
 ---
 
-
-
-
-Project Name: ReactMart
-
-Problem Statement: users want to view groceries and add them to a cart
-
-Problem Solution: Create a React front-end app that implements routing, pages, and an interactive cart.
-
-Features/Pages list: Home, Shop, Cart, About
 
