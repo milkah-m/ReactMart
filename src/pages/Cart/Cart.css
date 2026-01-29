@@ -1,0 +1,11 @@
+.cart-total {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+  text-align: right;
+}
+
+.cart-total h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}

@@ -17,19 +17,20 @@ const filteredProducts = data.filter(item =>
   item.name?.toLowerCase().includes(searchTerm.toLowerCase())
 )
 
- 
 
   return (
     <div className="Products-Page">
-      <input
-      type="text"
-      placeholder="Search groceries..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      className="search-input"
-      />
+     <div className="search-wrapper">
+  <input
+    type="text"
+    placeholder="Search groceries..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="search-input"
+  />
+</div>
       <h1 className="product heading">Groceries</h1>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div className="products-container">
         {filteredProducts.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}

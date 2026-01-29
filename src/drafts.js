@@ -67,3 +67,19 @@
 //         </div>
 //     )
 // }
+
+import Header from "./components/Header"; // keep it imported but not used for now
+
+  // search state for Shop (or other pages if needed)
+  // const [searchQuery, setSearchQuery] = useState("");
+
+   {/* Header commented out for now to remove unwanted search */}
+      {/*
+      <Header
+        // searchQuery={searchQuery}
+        // setSearchQuery={setSearchQuery}
+      />
+      */}
+
+       // searchQuery={searchQuery} 
+              // setSearchQuery={setSearchQuery} 
