@@ -15,9 +15,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -26,6 +28,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -93,13 +96,16 @@
 
 
 .Products-Page {
-  text-align: center; /* This centers all inline content inside the container */
-  padding: 2rem; /* optional spacing around the page */
+  text-align: center;
+  /* This centers all inline content inside the container */
+  padding: 2rem;
+  /* optional spacing around the page */
 }
 
 .product-heading {
   font-size: 2.5rem;
-  margin-bottom: 2rem; /* space below the heading */
+  margin-bottom: 2rem;
+  /* space below the heading */
 }
 
 .logo {
@@ -151,12 +157,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* full viewport height */
+  min-height: 100vh;
+  /* full viewport height */
   background: linear-gradient(to bottom, #a8e6a3, #ffffff);
 }
 
 .hero-content {
-  text-align: center; /* center text inside */
+  text-align: center;
+  /* center text inside */
 }
 
 .hero-content h1 {
@@ -165,7 +173,8 @@
 }
 
 .hero-content .basket {
-  width: 200px; /* adjust as needed */
+  width: 200px;
+  /* adjust as needed */
   margin: 1rem 0;
 }
 
@@ -205,7 +214,7 @@
 }
 
 .shop-btn {
-   margin-top: 2rem;
+  margin-top: 2rem;
   padding: 0.9rem 2.5rem;
   border-radius: 30px;
   border: none;
@@ -323,6 +332,36 @@
   background: #267a53;
 }
 
-.page-title{
-text-align: center;
+.page-title {
+  text-align: center;
+}
+
+.search-input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.global-search {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;   
+  color: #333;
+  outline: none;
+  font-size: 1rem;
+}
+
+.global-search::placeholder {
+  color: #999;
 }
