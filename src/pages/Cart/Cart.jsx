@@ -4,6 +4,7 @@
     import "./Cart.css"
     
 
+
 export default function Cart() {
   const { cartItems, removeFromCart, updateCartQuantity } = useContext(CartContext);
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function Cart() {
   );
 
   return (
-    <div className="cart">
+    <div className="cart-page">
       {cartItems.length === 0 ? (
         <div className="empty-cart">
           <h4>Ready when you are</h4>
@@ -31,20 +32,24 @@ export default function Cart() {
                 alt={item.name}
                 style={{ width: "100px", height: "100px", objectFit: "cover" }}
               />
+    <div className="cart-item-details">
+  <h4 className="cart-item-name">{item.name}</h4>
+  <p className="cart-item-price">
+    ${ (item.price * item.quantity).toFixed(2) }
+  </p>
+</div>
 
-              <h4>Item: {item.name}</h4>
-              <p>Price: {item.quantity * item.price}</p>
-              <p>Quantity: {item.quantity}</p>
+<div className="cart-item-quantity">
+  <button onClick={() => updateCartQuantity(item.id, item.quantity - 1)}>
+     -
+  </button>
 
-              <button onClick={() => updateCartQuantity(item.id, item.quantity - 1)}>
-                -
-              </button>
-              <button onClick={() => removeFromCart(item.id)}>
-                Remove From Cart
-              </button>
-              <button onClick={() => updateCartQuantity(item.id, item.quantity + 1)}>
-                +
-              </button>
+  <span>{item.quantity}</span>
+
+  <button onClick={() => updateCartQuantity(item.id, item.quantity + 1)}>
+    +
+  </button>
+</div> 
             </div>
           ))}
 
@@ -58,3 +63,5 @@ export default function Cart() {
     </div>
   );
 }
+
+

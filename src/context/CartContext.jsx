@@ -1,15 +1,25 @@
 
 
 //1. import context creation feature and useState
-import {createContext, useState} from 'react';
+import {createContext, useState, useEffect} from 'react';
 
 //2. export the CartContext variable which has created the context
 export const CartContext = createContext ()
 
 //cart provider function that wraps all state logic
 export function CartProvider ({children}){
-    //3. set state
-const [cartItems, setCartItems] = useState([])
+    //3. set state and initiate local storage
+const [cartItems, setCartItems] = useState(() => {
+    const storedCart = localStorage.getItem("cartItems");
+    return storedCart ? JSON.parse(storedCart) : []
+})
+// useEffect(() => {
+//   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+// }, [cartItems]);
+
+useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+}, [cartItems])
 
 
 //1. the add to cart function takes in a product as the parameter and is an arrow function
