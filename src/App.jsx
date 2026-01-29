@@ -3,8 +3,8 @@ import { React } from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar.jsx';
 import Home from './pages/Home'
-import Shop from './pages/Shop'
-import Cart from './pages/Cart'
+import Shop from './pages/Shop/Shop.jsx'
+import Cart from './pages/Cart/Cart.jsx'
 import About from './pages/About/About.jsx'
 import "./App.css"
 
