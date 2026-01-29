@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop/Shop";
 import Cart from "./pages/Cart/Cart";
 import About from "./pages/About/About";
+import "./App.css" 
 
 function App() {
 
