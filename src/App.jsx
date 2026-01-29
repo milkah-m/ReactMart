@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Cart from './pages/Cart'
 import About from './pages/About/About.jsx'
+import Header from './components/Header.jsx'
 import "./App.css"
 
 function App() {
@@ -20,6 +21,16 @@ function App() {
       </Routes>
     </div>
   );
+}
+
+function App() {
+  const [searchQuery, setSearchQuery] = useState("")
+    return(
+      <>
+      <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Shop searchQuery={searchQuery}/>
+      </>
+    )
 }
 
 export default App
