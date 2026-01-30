@@ -1,111 +1,169 @@
-# ReactMart 🛒
+ReactMart 🛒
 
-**Author:** farhiya mohamed abdi
-**GitHub:** https://github.com/farhiyamohamed/ReactMart/tree/feature/my-feature
+Authors: Farhiya Mohamed Abdi
 
----
 
-## Project Overview
 
-ReactMart is a **React-based e-commerce application** that allows users to:
+GitHub Repository:
+https://github.com/milkah-m/ReactMart
 
-- Browse a list of products
-- View and manage a shopping cart
-- Navigate between multiple pages (Home, Shop, Cart, About)
+📌 Project Overview
 
-This project demonstrates **React fundamentals**, including:
+ReactMart is a React-based e-commerce application that allows users to browse products, add items to a shopping cart, and manage their cart across multiple pages.
 
-- Component-based architecture
-- Dynamic rendering of data
-- Global state management using **Context API**
-- Routing using **React Router**
+The project demonstrates strong understanding of React fundamentals, including component architecture, global state management, routing, and testing.
 
-Vite is used for fast development and hot-reloading.
+✨ Features
 
----
+Shop Page
 
-## Features
+Displays a list of products with names and prices
 
-- **Shop Page:** Displays products with name and price  
-- **Cart Page:** Shows selected items; starts empty  
-- **Navigation:** Navigate between Home, Shop, Cart, About pages  
-- **Global State:** Cart state managed using Context API  
-- **Reusable Components:** Cartitem,Nav bar and Productcard
+Supports product searching
 
----
+Add-to-cart functionality with quantity controls
 
-## Tech Stack
+Cart Page
 
-- React 18  
-- React Router Dom  
-- Context API  
-- Vite  
-- JavaScript (ES6+)  
-- CSS  
+Displays items added to the cart
 
----
+Shows quantity controls (+ / −)
 
-## Project Structure
+Displays total price for all items
+
+Shows an empty cart message when no items are present
+
+Navigation
+
+Seamless navigation between Home, Shop, Cart, and About pages
+
+Global State Management
+
+Cart state managed using React Context API
+
+Prevents prop drilling and ensures consistent state across routes
+
+Data Persistence
+
+Cart data is persisted using localStorage, so cart items remain after refresh
+
+Testing
+
+Component and feature-level tests implemented using React Testing Library
+
+Tests cover rendering, cart updates, badge updates, and cart behavior
+
+🛠 Tech Stack
+
+React 18
+
+React Router DOM
+
+Context API
+
+Vite
+
+JavaScript (ES6+)
+
+CSS
+
+React Testing Library
+
+📂 Project Structure
 ReactMart/
 │
-├─ public/ # Root HTML template
+├─ public/
+│
 ├─ src/
-│ ├─ assets/ # Images and static assets
-│ ├─ components/ # Reusable UI components
-│ ├─ context/ # CartContext for global cart state
-│ ├─ data/ # Product data array
-│ ├─ pages/ # Full-page components (Home, Shop, Cart, About)
-│ ├─ App.jsx # Main app layout and route definitions
-     App.css
-     Individual styling
-│ ├─ main.jsx # Entry point, sets up Router + CartProvider
-│ └─ index.css # Global CSS styles
-├─ package.json # Dependencies and scripts
-└─ README.md # Project documentation
+│  ├─ assets/          # Images and static assets
+│  ├─ components/      # Reusable UI components
+│  ├─ context/         # CartContext for global cart state
+│  ├─ data/            # Static product data
+│  ├─ pages/           # Home, Shop, Cart, About pages
+│  ├─ tests/           # Application test files
+│  ├─ App.jsx          # Main app layout and routes
+│  ├─ main.jsx         # Entry point (Router + CartProvider)
+│  └─ index.css        # Global styles
+│
+├─ package.json
+└─ README.md
 
----
+⚙️ Setup & Installation
 
-## Setup & Installation
+Clone the repository
 
-1. **Clone the repository:**
-
-```bash
 git clone https://github.com/milkah-m/ReactMart.git
-Navigate into the project folder:
-   cd ReactMart
-Install dependencies:
-    npm install
-Start the development server:
-    npm run dev
-Open in browser:
-Navigate to the URL shown in terminal
-How the Application Works
-main.jsx sets up the React app, wrapping it in:
-StrictMode for developer warnings
-CartProvider for global cart state
+
+
+Navigate into the project folder
+
+cd ReactMart
+
+
+Install dependencies
+
+npm install
+
+
+Start the development server
+
+npm run dev
+
+
+Open in browser
+
+Navigate to the URL shown in the terminal
+
+🧠 How the Application Works
+
+main.jsx wraps the app with:
+
 BrowserRouter for routing
-App.jsx defines page routing.
+
+CartProvider for global cart state
+
+App.jsx defines routes:
+
 / → Home
-/Shop → Shop
-/Cart → Cart
-/About → About
-Shop page dynamically renders products from src/data/.
-Cart shows the selected items using global state from CartContext.
-Important Note:
-In the corrected App.jsx, <Shop /> and <Cart /> are rendered only inside <Routes>, preventing duplicate product and cart display on all pages.
-Usage
-Go to /Shop to view products.
-Add items to the cart (if Add to Cart buttons are implemented).
-Check /Cart to view selected items.
-Navigate to /About or / for additional information.
-Future Improvements
-Add category filters for products
-Implement total cart price calculation
-Make the layout responsive for mobile devices
-Add checkout functionality
-License
-This project is for educational purposes.
 
----
+/shop → Shop
 
+/cart → Cart
 
+/about → About
+
+Product data is loaded from a static data file
+
+Cart state is shared globally using Context API
+
+Cart updates trigger UI updates across pages (cart badge, cart page, totals)
+
+Tests verify critical user interactions and state updates
+
+🧪 Testing Overview
+
+The testing suite validates core features, including:
+
+App rendering without crashing
+
+Adding items to the cart
+
+Cart badge count updates
+
+Items appearing on the cart page
+
+Empty cart state handling
+
+Tests are written using React Testing Library and focus on user-visible behavior.
+
+🚀 Future Improvements
+
+Add advanced product filtering (categories, price ranges)
+
+Integrate a backend payment and checkout system
+
+Connect to a backend API for dynamic product data
+
+📄 License
+
+This project is for educational purposes only.

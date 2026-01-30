@@ -47,7 +47,7 @@ export default function Cart() {
               />
     <div className="cart-item-details">
   <h4 className="cart-item-name" data-testid="cart-item-name">{item.name}</h4>
-  <p className="cart-item-price">
+  <p className="cart-item-price" data-testid="cart-item-price">
     ${ (item.price * item.quantity).toFixed(2) }
   </p>
 </div>
@@ -75,7 +75,7 @@ export default function Cart() {
           ))}
 
           {/* section for displaying total price and checkout button */}
-          <div className="cart-total">
+          <div className="cart-total" data-testid ="cart-total">
         <h3>Total: ${totalPrice.toFixed(2)}</h3>
         <button className="checkout-btn" onClick={handleCheckout}>
         Checkout
