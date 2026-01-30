@@ -1,41 +1,49 @@
-
 import { ProductCard } from "../../components/ProductCard.jsx";
 import useProducts from "../../data/api.js";
-import {useState} from "react" //implementing useState for search functionality
-import "./Shop.css"
-
+import { useState } from "react";
+import "./Shop.css";
 
 function Shop() {
-  const { data = [], loading } = useProducts([]); // this line uses the custom hook useProducts to fetch product data and loading state
-  const [searchTerm, setSearchTerm] = useState("") //setting initial state to an empty string
+  // Fetch product data and loading state using custom hook
+  const { data = [], loading } = useProducts([]);
+  // Track the search input
+  const [searchTerm, setSearchTerm] = useState("");
 
-   if (loading) {
-    return <h2>Loading products...</h2>;
+  if (loading) {
+    return <div className="shop-loading">Loading fresh groceries…</div>;
   }
 
-const filteredProducts = data.filter(item =>
-  item.name?.toLowerCase().includes(searchTerm.toLowerCase())
-)
-
+  // Filter products by search term
+  const filteredProducts = data.filter((product) =>
+    product.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="Products-Page">
-     <div className="search-wrapper">
-  <input
-    type="text"
-    placeholder="Search groceries..."
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className="search-input"
-  />
-</div>
-      <h1 className="product heading">Groceries</h1>
-      <div className="products-container">
-        {filteredProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-    </div>
+    <main className="shop-page">
+      {/* Hero Section */}
+      <section className="shop-hero">
+        <h1>Shop Fresh Groceries</h1>
+        <p>Hand-picked quality. Delivered to your door.</p>
+
+        <div className="search-wrapper">
+          <input
+            type="text"
+            placeholder="Search fruits, vegetables, snacks…"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section className="products-section">
+        <div className="products-grid">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
 

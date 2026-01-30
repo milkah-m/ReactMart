@@ -1,15 +1,30 @@
- import './About.css';
+import "./About.css";
 
 const About = () => {
-    return (<div className='about-page'>
-          <h1> About ReactMart</h1>
-    <p>
-Welcome to <strong>ReactMart</strong>, your friendly neighborhood grocery hub! 🥕🛒 
-From fresh fruits and vegetables to pantry staples, we make grocery shopping simple, seamless, and fun. 
-This app was designed with care by a team of upcoming developers — <strong>Eugene, Farhiya, Jabari, and Milkah</strong>—who wanted to create a smooth and enjoyable shopping experience. 
-Browse our groceries, fill your cart, and discover the joy of shopping with ReactMart!
-    </p>
-    </div>)
-  
-}
-export default About
+  return (
+    <section className="about-page">
+      <div className="about-content">
+        <h1>About ReactMart</h1>
+        <p className="lead">
+          Fresh groceries. Simple shopping. Built for people.
+        </p>
+        <p>
+          <strong>ReactMart</strong> was created to make grocery shopping fast,
+          friendly, and stress-free. From crisp produce to everyday essentials,
+          we focus on quality, speed, and simplicity.
+        </p>
+        <p>
+          Built by passionate developers -
+          <strong> Eugene, Farhiya, Jabari, and Milkah</strong> - ReactMart is
+          powered by modern web technology and thoughtful design to give you an
+          experience that feels smooth and human.
+        </p>
+        <p>
+          This isn't just a store. It's your neighborhood grocery - online.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default About;
