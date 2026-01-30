@@ -38,7 +38,7 @@ export const ProductCard = ({ product }) => {
       />
        {/* //5. here i am displaying the name with a bit of inline styling and the product price */}
       <h3 style={{ margin: "10px 0 5px" }} data-testid="product-name">{product.name} </h3>
-      <p>${product.price}</p>
+      <p className="product-price">${product.price}</p>
 {/* 
        6. conditional rendering for the cartItem */}
       {cartItem ? (
@@ -86,6 +86,7 @@ export const ProductCard = ({ product }) => {
             padding: "6px 12px",
             cursor: "pointer"
           }} 
+          data-testid="add"
         >
           Add to Cart
         </button>

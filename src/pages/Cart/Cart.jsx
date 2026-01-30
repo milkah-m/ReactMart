@@ -5,28 +5,38 @@ import "./Cart.css";
 
 export default function Cart() {
   const { cartItems, removeFromCart, updateCartQuantity, clearCart } =
-  useContext(CartContext);
-
+    useContext(CartContext);
   const navigate = useNavigate();
 
-  // calculate total price
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
-  const handleCheckout = () => { // this function handles the checkout process
-  navigate("/checkout", {
-    state: {
-      items: cartItems,
-      total: totalPrice
-    }
-  });
+  // Handle checkout
+  const handleCheckout = () => {
+    navigate("/checkout", {
+      state: {
+        items: cartItems,
+        total: totalPrice,
+      },
+    });
+    clearCart();
+  };
 
-  clearCart();
-};
+  // Empty cart state
+  if (cartItems.length === 0) {
+    return (
+      <section className="cart-empty">
+        <h2>Your cart is empty</h2>
+        <p>Add fresh groceries and they’ll show up here.</p>
+        <button onClick={() => navigate("/shop")}>Shop Groceries</button>
+      </section>
+    );
+  }
 
   return (
+<<<<<<< HEAD
     <div className="cart-page">
       {cartItems.length === 0 ? (
         <div className="empty-cart">
@@ -54,46 +64,73 @@ export default function Cart() {
   </p>
 </div>
 >>>>>>> fad0fd4ab75a97e67b3603c311443cfde4435b42
+=======
+    <main className="cart-page">
+      {/* Cart items section */}
+      <section className="cart-items">
+        <h1>Your Cart</h1>
+>>>>>>> 6e3e1c8c2a774d008c141b1fcfc4cfc35e2fef68
 
-              <div className="cart-item-details">
-                <h4 className="cart-item-name">{item.name}</h4>
-                <p className="cart-item-price">
-                  ${(item.price * item.quantity).toFixed(2)}
-                </p>
-              </div>
+        {cartItems.map((item) => (
+          <div key={item.id} className="cart-item">
+            <img src={item.image} alt={item.name} />
 
-              <div className="cart-item-quantity">
+            <div className="cart-item-info">
+              <h4 data-testid="cart-item-name">{item.name}</h4>
+              <p className="price" data-testid="cart-item-price">Ksh {item.price}</p>
+
+              <div className="quantity-controls">
                 <button
                   onClick={() =>
                     updateCartQuantity(item.id, item.quantity - 1)
                   }
                 >
-                  -
+                  −
                 </button>
-
                 <span>{item.quantity}</span>
-
                 <button
                   onClick={() =>
                     updateCartQuantity(item.id, item.quantity + 1)
-                  }
+                  } 
                 >
                   +
                 </button>
               </div>
             </div>
-          ))}
 
-          {/* section for displaying total price and checkout button */}
-          <div className="cart-total">
-        <h3>Total: ${totalPrice.toFixed(2)}</h3>
+            <div className="cart-item-actions">
+              <p className="item-total" data-testid="cart-item-total">
+                Ksh {(item.price * item.quantity).toFixed(2)}
+              </p>
+              <button
+                className="remove"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Order summary */}
+      <aside className="cart-summary">
+        <h3>Order Summary</h3>
+
+        <div className="summary-row">
+          <span>Items</span>
+          <span>{cartItems.length}</span>
+        </div>
+
+        <div className="summary-row">
+          <span>Total</span>
+          <strong data-testid="cart-final-total">Ksh {totalPrice.toFixed(2)}</strong>
+        </div>
+
         <button className="checkout-btn" onClick={handleCheckout}>
-        Checkout
+          Proceed to Checkout
         </button>
-        </div>
-        
-        </div>
-      )}
-    </div>
+      </aside>
+    </main>
   );
 }

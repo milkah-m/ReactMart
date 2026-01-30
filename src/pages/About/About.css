@@ -1,26 +1,36 @@
 .about-page {
-  max-width: 800px;          /* Keep text from stretching too wide */
-  margin: 50px auto;          /* Center on page with top/bottom spacing */
-  padding: 20px;
-  background-color: #fef9f4;  /* Soft warm background */
-  border-radius: 12px;        /* Rounded corners for friendly look */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #ffffff, #f4f8f4);
 }
 
-.about-page h1 {
+.about-content {
+  max-width: 900px;
+  background: #e6f3ea; /* much lighter green background */
+  padding: 3.5rem;
+  border-radius: 26px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
   text-align: center;
-  color: #2a7f62;             /* Fresh green accent for groceries */
-  margin-bottom: 20px;
-  font-size: 2rem;
 }
 
-.about-page p {
-  font-size: 1.1rem;
-  color: #333;
+.about-content h1 {
+  font-size: 3rem;
+  color: #1f6f43; /* darker green text for contrast */
+  margin-bottom: 1rem;
 }
 
-.about-page strong {
-  color: #2a7f62;             /* Highlight names and app name */
+.about-content .lead {
+  font-size: 1.2rem;
+  color: #184d36; /* slightly muted green for readability */
+  margin-bottom: 2rem;
+}
+
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #184d36; /* match the lead text for consistency */
+  margin-bottom: 1.4rem;
 }
