@@ -10,8 +10,8 @@ export const CartContext = createContext ()
 export function CartProvider ({children}){
     //3. set state and initiate local storage
 const [cartItems, setCartItems] = useState(() => {
-    const storedCart = localStorage.getItem("cartItems");
-    return storedCart ? JSON.parse(storedCart) : []
+    const storedCart = localStorage.getItem("cartItems"); // this line retrieves the cart items from local storage
+    return storedCart ? JSON.parse(storedCart) : [] // if there are stored items, return them, otherwise return an empty array
 })
 
 
@@ -30,7 +30,7 @@ const addToCart = (product) => {
 
     }
 //4. otherwise if there is no existing item. then to the previous items array, add a new product and set its quantity to 1
-    return [...prevItems, {...product, quantity:1}];
+    return [...prevItems, {...product, quantity:1}]; // this line adds the new product to the cart with an initial quantity of 1 and the spread operator (...) is used to copy all properties of the product object into the new object
 
     });
   
@@ -45,19 +45,24 @@ const addToCart = (product) => {
 
 
 const updateCartQuantity = (id, newQuantity) => {
- newQuantity === 0  
+ newQuantity === 0
  ? removeFromCart(id)
-: setCartItems(prevItems => prevItems.map( item => item.id === id ? {...item, quantity: newQuantity} 
+: setCartItems(prevItems => prevItems.map( item => item.id === id ? {...item, quantity: newQuantity}
 : item)) 
 
 
 }
 
+const clearCart = () => { // this function clears all items from the cart
+  setCartItems([]);
+};
+
+
 return (
-    <CartContext.Provider value = {{cartItems, addToCart, removeFromCart, updateCartQuantity}}>
-         {children}
+    <CartContext.Provider value={{cartItems, addToCart, removeFromCart, updateCartQuantity, clearCart}}>
+        {children}
     </CartContext.Provider>
 )
 
-}
 
+}
