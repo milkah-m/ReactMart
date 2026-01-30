@@ -45,6 +45,15 @@ export default function Cart() {
                 alt={item.name}
                 style={{ width: "100px", height: "100px", objectFit: "cover" }}
               />
+<<<<<<< HEAD
+=======
+    <div className="cart-item-details">
+  <h4 className="cart-item-name" data-testid="cart-item-name">{item.name}</h4>
+  <p className="cart-item-price">
+    ${ (item.price * item.quantity).toFixed(2) }
+  </p>
+</div>
+>>>>>>> fad0fd4ab75a97e67b3603c311443cfde4435b42
 
               <div className="cart-item-details">
                 <h4 className="cart-item-name">{item.name}</h4>

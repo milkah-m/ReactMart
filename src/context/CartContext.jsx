@@ -13,9 +13,7 @@ const [cartItems, setCartItems] = useState(() => {
     const storedCart = localStorage.getItem("cartItems"); // this line retrieves the cart items from local storage
     return storedCart ? JSON.parse(storedCart) : [] // if there are stored items, return them, otherwise return an empty array
 })
-// useEffect(() => {
-//   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-// }, [cartItems]);
+
 
 useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems))

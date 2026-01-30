@@ -83,3 +83,81 @@ import Header from "./components/Header"; // keep it imported but not used for n
 
        // searchQuery={searchQuery} 
               // setSearchQuery={setSearchQuery} 
+
+              {/* <h4>Item: {item.name}</h4>
+              <p>Price: {item.quantity * item.price}</p>
+              <p>Quantity: {item.quantity}</p>
+
+              <button onClick={() => updateCartQuantity(item.id, item.quantity - 1)}>
+                -
+              </button>
+              <button onClick={() => removeFromCart(item.id)}>
+                Remove From Cart
+              </button>
+              <button onClick={() => updateCartQuantity(item.id, item.quantity + 1)}>
+                +
+              </button> */}
+
+              // import { Routes, Route } from 'react-router-dom';
+
+// import Home from '../../pages/Home.jsx';
+// import Shop from '../../pages/Shop.jsx';
+// import Cart from '../pages/Cart.jsx';
+// import About from '../pages/About.jsx';
+
+// const Router = () => {
+//     return (
+//         <Routes>
+//             <Route path='/' element={<Home />} />
+//             <Route path='/shop' element={<Shop />} />
+//             <Route path='/cart' element={<Cart />} />
+//             <Route path='/about' element={<About />} />
+//         </Routes>
+//     );
+// };
+
+// export default Router;
+
+// function Header({ searchQuery, setSearchQuery }) {
+//     return (
+//         <header className="header">
+//             <input
+//                 type="text"
+//                 placeholder="Search groceries..."
+//                 value={searchQuery}
+//                 onChange={(e) => setSearchQuery(e.target.value)}
+//                 className="search-input"
+//             />
+//         </header>
+//     );
+// }
+
+// export default Header;
+
+
+// import { ProductCard } from "../components/ProductCard.jsx";
+// import useProducts from "../data/api.js";
+
+// function Shop({ searchQuery }) {
+//   const { data, loading } = useProducts();
+
+//   if (loading) {
+//     return <h2>Loading products...</h2>;
+//   }
+
+//   const filteredProducts = data.filter((product) =>
+//     product.name.toLowerCase().includes(searchQuery.toLowerCase())
+//   );
+
+//   return (
+//     <div className="Products-Page">
+//       <h1 className="product heading">Groceries</h1>
+
+//       <div style={{ display: "flex", flexWrap: "wrap" }}>
+//         {filteredProducts.map((product) => (
+//           <ProductCard key={product.id} product={product} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
