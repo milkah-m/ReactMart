@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 export default function Cart() {
-  const { cartItems, removeFromCart, updateCartQuantity } =
+  const { cartItems, removeFromCart, updateCartQuantity, clearCart } =
     useContext(CartContext);
   const navigate = useNavigate();
 
@@ -13,6 +13,18 @@ export default function Cart() {
     0
   );
 
+  // Handle checkout
+  const handleCheckout = () => {
+    navigate("/checkout", {
+      state: {
+        items: cartItems,
+        total: totalPrice,
+      },
+    });
+    clearCart();
+  };
+
+  // Empty cart state
   if (cartItems.length === 0) {
     return (
       <section className="cart-empty">
@@ -25,10 +37,11 @@ export default function Cart() {
 
   return (
     <main className="cart-page">
+      {/* Cart items section */}
       <section className="cart-items">
         <h1>Your Cart</h1>
 
-        {cartItems.map(item => (
+        {cartItems.map((item) => (
           <div key={item.id} className="cart-item">
             <img src={item.image} alt={item.name} />
 
@@ -70,6 +83,7 @@ export default function Cart() {
         ))}
       </section>
 
+      {/* Order summary */}
       <aside className="cart-summary">
         <h3>Order Summary</h3>
 
@@ -83,7 +97,9 @@ export default function Cart() {
           <strong>Ksh {totalPrice.toFixed(2)}</strong>
         </div>
 
-        <button className="checkout-btn">Proceed to Checkout</button>
+        <button className="checkout-btn" onClick={handleCheckout}>
+          Proceed to Checkout
+        </button>
       </aside>
     </main>
   );

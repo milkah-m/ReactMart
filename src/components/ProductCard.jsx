@@ -5,10 +5,10 @@ import { CartContext } from "../context/CartContext";
 
 export const ProductCard = ({ product }) => {
   //1. pulling two functions and one state variable from cart context
-  const { addToCart, cartItems, updateCartQuantity } = useContext(CartContext);
+  const { addToCart, cartItems, updateCartQuantity } = useContext(CartContext); 
 
   //2. this guides in button decision making. should i show addToCart or (+/-) buttons
-  const cartItem = cartItems.find(item => item.id === product.id); 
+  const cartItem = cartItems.find(item => item.id === product.id);
 
   return (
     <div
@@ -37,8 +37,8 @@ export const ProductCard = ({ product }) => {
         }}
       />
        {/* //5. here i am displaying the name with a bit of inline styling and the product price */}
-      <h3 style={{ margin: "10px 0 5px" }}>{product.name}</h3>
-      <p>${product.price}</p>
+      <h3 style={{ margin: "10px 0 5px" }} data-testid="product-name">{product.name} </h3>
+      <p className="product-price">${product.price}</p>
 {/* 
        6. conditional rendering for the cartItem */}
       {cartItem ? (
@@ -73,6 +73,7 @@ export const ProductCard = ({ product }) => {
             onClick={() =>
               updateCartQuantity(product.id, cartItem.quantity + 1)
             }
+           
           >
             +
           </button>
@@ -84,7 +85,8 @@ export const ProductCard = ({ product }) => {
             marginTop: "8px",
             padding: "6px 12px",
             cursor: "pointer"
-          }}
+          }} 
+          data-testid="add"
         >
           Add to Cart
         </button>

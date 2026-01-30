@@ -2,23 +2,29 @@ import { useState, useEffect } from "react";
 import products from "./products";
 
 // Using Custom/Standard hooks to fetch the product data from the database on products.js
-export default function useProducts() {
+export default function useProducts() { // this is a custom hook named useProducts and we are using export default to make it available for import in other files
   // Stores product data
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); //this line initializes a state variable 'data' as an empty array and provides a function 'setData' to update it
 
   // manages the loading...
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // this line initializes a state variable 'loading' as true and provides a function 'setLoading' to update it
 
-  // Runs once when the component using this hook mounts
-  useEffect(() => {
-    // Makes the API call Delay as if fetching from a real server
-    setTimeout(() => {
-      setData(products);     
+  // Async function to simulate API call
+  const fetchProducts = async () => { // this line defines an asynchronous function named fetchProducts
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1300));
+
+      setData(products);
+    } catch (error) {
+      console.error("Failed to fetch products", error);
+    } finally {
       setLoading(false);
-    }, 1300); // how long the loading takes (1.3 seconds)
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
   }, []);
 
-  // Return product data and loading state
   return { data, loading };
-}
-
+} 
