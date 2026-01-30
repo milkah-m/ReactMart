@@ -2,6 +2,7 @@ ReactMart 🛒
 
 Authors: Farhiya Mohamed Abdi
 
+Deployment Link: https://the-react-mart.vercel.app/?_vercel_share=29mZs2usqUzoAnFS5fd0zpeZ6iX5tzqb
 
 
 GitHub Repository:
