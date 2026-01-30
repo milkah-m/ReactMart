@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import products from "./products";
+import products from "../data/products";
 
 // Using Custom/Standard hooks to fetch the product data from the database on products.js
 export default function useProducts() { // this is a custom hook named useProducts and we are using export default to make it available for import in other files

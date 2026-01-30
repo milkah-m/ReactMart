@@ -1,65 +1,61 @@
 ReactMart 🛒
 
-Authors: Farhiya Mohamed Abdi
+Author: Farhiya Mohamed Abdi
+GitHub: ReactMart
 
+Live Demo: https://the-react-mart.vercel.app/?_vercel_share=29mZs2usqUzoAnFS5fd0zpeZ6iX5tzqb
 
+Project Overview
 
-GitHub Repository:
-https://github.com/milkah-m/ReactMart
+ReactMart is a React-based e-commerce application that allows users to:
 
-📌 Project Overview
+Browse a list of products
 
-ReactMart is a React-based e-commerce application that allows users to browse products, add items to a shopping cart, and manage their cart across multiple pages.
+View and manage a shopping cart
 
-The project demonstrates strong understanding of React fundamentals, including component architecture, global state management, routing, and testing.
+Navigate between multiple pages (Home, Shop, Cart, About)
 
-✨ Features
+This project demonstrates React fundamentals, including:
 
-Shop Page
+Component-based architecture
 
-Displays a list of products with names and prices
+Dynamic rendering of data
 
-Supports product searching
+Global state management using Context API
 
-Add-to-cart functionality with quantity controls
+Routing using React Router
 
-Cart Page
+Custom hooks for data fetching
 
-Displays items added to the cart
+Vite is used for fast development and hot-reloading.
 
-Shows quantity controls (+ / −)
+Features
 
-Displays total price for all items
+Shop Page: Displays products with name, image, and price
 
-Shows an empty cart message when no items are present
+Cart Page: Shows selected items; starts empty
 
-Navigation
+Navigation: Navigate between Home, Shop, Cart, About pages
 
-Seamless navigation between Home, Shop, Cart, and About pages
+Global State: Cart state managed using Context API
 
-Global State Management
+Reusable Components: CartItem, Navbar, ProductCard
 
-Cart state managed using React Context API
+Product Searching: Search bar on Navbar for filtering products
 
-Prevents prop drilling and ensures consistent state across routes
+Checkout & Total Price: Items in cart show quantity and total price
 
-Data Persistence
+Persistent Data: Cart state saved in local storage
 
-Cart data is persisted using localStorage, so cart items remain after refresh
-
-Testing
-
-Component and feature-level tests implemented using React Testing Library
-
-Tests cover rendering, cart updates, badge updates, and cart behavior
-
-🛠 Tech Stack
+Tech Stack
 
 React 18
 
-React Router DOM
+React Router Dom
 
 Context API
+
+Custom Hooks
 
 Vite
 
@@ -67,62 +63,107 @@ JavaScript (ES6+)
 
 CSS
 
-React Testing Library
-
-📂 Project Structure
+Project Structure
 ReactMart/
 │
-├─ public/
-│
+├─ public/                 # Root HTML template
 ├─ src/
-│  ├─ assets/          # Images and static assets
-│  ├─ components/      # Reusable UI components
-│  ├─ context/         # CartContext for global cart state
-│  ├─ data/            # Static product data
-│  ├─ pages/           # Home, Shop, Cart, About pages
-│  ├─ tests/           # Application test files
-│  ├─ App.jsx          # Main app layout and routes
-│  ├─ main.jsx         # Entry point (Router + CartProvider)
-│  └─ index.css        # Global styles
-│
-├─ package.json
-└─ README.md
+│  ├─ assets/              # Images and static assets
+│  ├─ components/          # Reusable UI components
+│  ├─ context/             # CartContext for global cart state
+│  ├─ data/                # Product data array
+│  ├─ hooks/               # Custom React hooks
+│  │   └─ useProducts.js   # Custom hook for fetching product data
+│  ├─ pages/               # Full-page components (Home, Shop, Cart, About)
+│  ├─ App.jsx              # Main app layout and route definitions
+│  ├─ App.css              # Individual styling
+│  ├─ main.jsx             # Entry point, sets up Router + CartProvider
+│  └─ index.css            # Global CSS styles
+├─ package.json            # Dependencies and scripts
+└─ README.md               # Project documentation
 
-⚙️ Setup & Installation
+Custom Hook: useProducts
 
-Clone the repository
+The useProducts hook handles fetching product data and managing loading state:
+
+import { useState, useEffect } from "react";
+import products from "../data/products";
+
+export default function useProducts() {
+  // Stores product data
+  const [data, setData] = useState([]);
+
+  // Tracks loading state
+  const [loading, setLoading] = useState(true);
+
+  // Async function to simulate fetching products from an API
+  const fetchProducts = async () => {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1300));
+      setData(products);
+    } catch (error) {
+      console.error("Failed to fetch products", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fetch products when component mounts
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  return { data, loading };
+}
+
+
+Breakdown (step by step):
+
+useState([]) initializes an empty array for data and provides setData to update it.
+
+useState(true) initializes the loading state as true.
+
+fetchProducts is an async function that simulates an API call using a timeout, then sets the product data.
+
+useEffect runs fetchProducts once on component mount.
+
+Returns { data, loading } so any component can consume product data and loading state.
+
+Setup & Installation
+
+Clone the repository:
 
 git clone https://github.com/milkah-m/ReactMart.git
 
 
-Navigate into the project folder
+Navigate into the project folder:
 
 cd ReactMart
 
 
-Install dependencies
+Install dependencies:
 
 npm install
 
 
-Start the development server
+Start the development server:
 
 npm run dev
 
 
-Open in browser
+Open in browser: Navigate to the URL shown in terminal
 
-Navigate to the URL shown in the terminal
+How the Application Works
 
-🧠 How the Application Works
+main.jsx sets up the React app, wrapping it in:
 
-main.jsx wraps the app with:
-
-BrowserRouter for routing
+StrictMode for developer warnings
 
 CartProvider for global cart state
 
-App.jsx defines routes:
+BrowserRouter for routing
+
+App.jsx defines page routing:
 
 / → Home
 
@@ -132,38 +173,28 @@ App.jsx defines routes:
 
 /about → About
 
-Product data is loaded from a static data file
+Shop page dynamically renders products using useProducts hook.
 
-Cart state is shared globally using Context API
+Cart page displays selected items with quantity and total price.
 
-Cart updates trigger UI updates across pages (cart badge, cart page, totals)
+Navbar allows searching products in real-time.
 
-Tests verify critical user interactions and state updates
+Usage
 
-🧪 Testing Overview
+Go to /shop to view products.
 
-The testing suite validates core features, including:
+Add items to the cart.
 
-App rendering without crashing
+Check /cart to view selected items and total price.
 
-Adding items to the cart
+Navigate to /about or / for additional info.
 
-Cart badge count updates
+Future Improvements
 
-Items appearing on the cart page
+Add category filters for products
 
-Empty cart state handling
+Add backend payment functionality
 
-Tests are written using React Testing Library and focus on user-visible behavior.
+License
 
-🚀 Future Improvements
-
-Add advanced product filtering (categories, price ranges)
-
-Integrate a backend payment and checkout system
-
-Connect to a backend API for dynamic product data
-
-📄 License
-
-This project is for educational purposes only.
+This project is for educational purposes.

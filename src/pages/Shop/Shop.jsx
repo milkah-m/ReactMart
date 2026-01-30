@@ -1,5 +1,5 @@
 import { ProductCard } from "../../components/ProductCard.jsx";
-import useProducts from "../../data/api.js";
+import useProducts from "../../custom hook/useProducts.js";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Shop.css";
