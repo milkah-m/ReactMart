@@ -1,44 +1,85 @@
-.Products-Page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%; /* ensures full width */
+.shop-page {
   min-height: 100vh;
-  padding: 2rem;
-  gap: 1.5rem;
+  background: linear-gradient(to bottom, #ffffff, #f4f8f4);
+  padding-top: 8rem;
+}
+
+.shop-hero {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 3rem;
+  text-align: center;
+}
+
+.shop-hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--green-dark);
+}
+
+.shop-hero p {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
 }
 
 .search-wrapper {
-  width: 100%;
+  margin-top: 2.2rem;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
 }
 
-.search-input {
-  width: 100%;
-  max-width: 400px;
-  padding: 0.6rem 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.search-wrapper input {
+  width: 420px;
+  max-width: 100%;
+  padding: 1rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid #d5e0d6;
+  font-size: 0.95rem;
+  outline: none;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-
-.product-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
+.search-wrapper input:focus {
+  box-shadow: 0 0 0 6px rgba(31, 111, 67, 0.18);
+  transform: scale(1.03);
 }
 
-/* container for product cards */
-.products-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%; /* <--- ensure it spans full width */
-  max-width: 1200px; /* optional, keeps it from being too wide on huge screens */
+.products-section {
+  max-width: 1600px; 
+  margin: 0 auto;
+  padding: 0 3rem 6rem;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2.4rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 22px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.16);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 

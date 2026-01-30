@@ -1,60 +1,90 @@
-    import {useContext }from 'react'
-    import { CartContext } from '../../context/CartContext'
-    import { useNavigate } from 'react-router-dom';
-    import "./Cart.css"
-    
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import { useNavigate } from "react-router-dom";
+import "./Cart.css";
 
 export default function Cart() {
-  const { cartItems, removeFromCart, updateCartQuantity } = useContext(CartContext);
+  const { cartItems, removeFromCart, updateCartQuantity } =
+    useContext(CartContext);
   const navigate = useNavigate();
 
-  // calculate total price
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
+  if (cartItems.length === 0) {
+    return (
+      <section className="cart-empty">
+        <h2>Your cart is empty</h2>
+        <p>Add fresh groceries and they’ll show up here.</p>
+        <button onClick={() => navigate("/shop")}>Shop Groceries</button>
+      </section>
+    );
+  }
+
   return (
-    <div className="cart">
-      {cartItems.length === 0 ? (
-        <div className="empty-cart">
-          <h4>Ready when you are</h4>
-          <p>Your cart will update as soon as you add your favorite products</p>
-          <button onClick={() => navigate("/shop")}>Start Shopping</button>
-        </div>
-      ) : (
-        <div className="cart-items">
-          {cartItems.map(item => (
-            <div key={item.id} className="singular-cart-item">
-              <img
-                src={item.image}
-                alt={item.name}
-                style={{ width: "100px", height: "100px", objectFit: "cover" }}
-              />
+    <main className="cart-page">
+      <section className="cart-items">
+        <h1>Your Cart</h1>
 
-              <h4>Item: {item.name}</h4>
-              <p>Price: {item.quantity * item.price}</p>
-              <p>Quantity: {item.quantity}</p>
+        {cartItems.map(item => (
+          <div key={item.id} className="cart-item">
+            <img src={item.image} alt={item.name} />
 
-              <button onClick={() => updateCartQuantity(item.id, item.quantity - 1)}>
-                -
-              </button>
-              <button onClick={() => removeFromCart(item.id)}>
-                Remove From Cart
-              </button>
-              <button onClick={() => updateCartQuantity(item.id, item.quantity + 1)}>
-                +
+            <div className="cart-item-info">
+              <h4>{item.name}</h4>
+              <p className="price">Ksh {item.price}</p>
+
+              <div className="quantity-controls">
+                <button
+                  onClick={() =>
+                    updateCartQuantity(item.id, item.quantity - 1)
+                  }
+                >
+                  −
+                </button>
+                <span>{item.quantity}</span>
+                <button
+                  onClick={() =>
+                    updateCartQuantity(item.id, item.quantity + 1)
+                  }
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div className="cart-item-actions">
+              <p className="item-total">
+                Ksh {(item.price * item.quantity).toFixed(2)}
+              </p>
+              <button
+                className="remove"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
               </button>
             </div>
-          ))}
+          </div>
+        ))}
+      </section>
 
-          {cartItems.length > 0 && (
-            <div className="cart-total">
-              <h3>Total: {totalPrice.toFixed(2)}</h3>
-            </div>
-          )}
+      <aside className="cart-summary">
+        <h3>Order Summary</h3>
+
+        <div className="summary-row">
+          <span>Items</span>
+          <span>{cartItems.length}</span>
         </div>
-      )}
-    </div>
+
+        <div className="summary-row">
+          <span>Total</span>
+          <strong>Ksh {totalPrice.toFixed(2)}</strong>
+        </div>
+
+        <button className="checkout-btn">Proceed to Checkout</button>
+      </aside>
+    </main>
   );
 }
