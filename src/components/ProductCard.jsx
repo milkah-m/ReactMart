@@ -5,10 +5,10 @@ import { CartContext } from "../context/CartContext";
 
 export const ProductCard = ({ product }) => {
   //1. pulling two functions and one state variable from cart context
-  const { addToCart, cartItems, updateCartQuantity } = useContext(CartContext);
+  const { addToCart, cartItems, updateCartQuantity } = useContext(CartContext); 
 
   //2. this guides in button decision making. should i show addToCart or (+/-) buttons
-  const cartItem = cartItems.find(item => item.id === product.id); 
+  const cartItem = cartItems.find(item => item.id === product.id);
 
   return (
     <div

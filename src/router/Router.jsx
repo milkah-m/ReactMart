@@ -4,6 +4,7 @@ import Home from '../pages/Home.jsx';
 import Shop from '../pages/Shop.jsx';
 import Cart from '../pages/Cart.jsx';
 import About from '../pages/About.jsx';
+import Checkout from "./pages/Checkout";
 
 const Router = () => {
     return (
@@ -12,6 +13,7 @@ const Router = () => {
             <Route path='/shop' element={<Shop />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/about' element={<About />} />
+            <Route path="/checkout" element={<Checkout />} />
         </Routes>
     );
 };
