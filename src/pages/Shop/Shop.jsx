@@ -6,7 +6,7 @@ import "./Shop.css"
 
 
 function Shop() {
-  const { data = [], loading } = useProducts([]);
+  const { data = [], loading } = useProducts([]); // this line uses the custom hook useProducts to fetch product data and loading state
   const [searchTerm, setSearchTerm] = useState("") //setting initial state to an empty string
 
    if (loading) {

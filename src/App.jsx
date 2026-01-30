@@ -4,7 +4,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop/Shop";
 import Cart from "./pages/Cart/Cart";
+import Checkout from "./pages/Checkout";
 import About from "./pages/About/About";
+
 import "./App.css" 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
           }
         />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </div>
