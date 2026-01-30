@@ -21,7 +21,7 @@ function Navbar() {
                     <NavLink to='/cart' className="cart-link">
                     Cart <FaShoppingCart className = "cart-icon"/>
                     {cartItemCount > 0 &&(
-                    <span className="cart-count">{cartItemCount}</span>)}
+                    <span className="cart-count" data-testid="cart-badge">{cartItemCount}</span>)}
                     </NavLink></li>
                  <li><NavLink to='/about'>About</NavLink></li>
             </ul>
