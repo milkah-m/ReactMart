@@ -19,14 +19,13 @@ test ("adds item to cart when Add To Cart button is clicked", async () =>{
         );
 
         await waitFor(() => {
-            expect (screen.queryByText(/Loading products/i)).not.toBeInTheDocument();
+            expect (screen.queryByText(/Loading fresh groceries/i)).not.toBeInTheDocument();
         }, {timeout: 2000});
 
+  const addToCartButton =  await screen.findAllByText(/add to cart/i);
+     fireEvent.click(addToCartButton[0] )
 
     const firstProductName = screen.getAllByTestId("product-name")[0].textContent.trim()
-
-    const addToCartButton =  screen.getAllByText(/add to cart/i);
-     fireEvent.click(addToCartButton[0] )
 
     const cartLink = screen.getByTestId(/cart/i);
     fireEvent.click(cartLink);
@@ -48,12 +47,12 @@ test ("cart counter updates correctly", async () =>{
         );
 
         await waitFor(() => {
-            expect (screen.queryByText(/Loading products/i)).not.toBeInTheDocument();
+            expect (screen.queryByText(/Loading fresh groceries/i)).not.toBeInTheDocument();
         }, {timeout: 2000});
 
        
 
-    const addToCartButton =  screen.getAllByText(/add to cart/i);
+    const addToCartButton =  await screen.findAllByText(/add to cart/i);
 
     fireEvent.click(addToCartButton[0] )
     fireEvent.click(addToCartButton[1] )

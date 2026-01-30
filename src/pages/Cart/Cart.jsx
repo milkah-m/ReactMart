@@ -46,8 +46,8 @@ export default function Cart() {
             <img src={item.image} alt={item.name} />
 
             <div className="cart-item-info">
-              <h4>{item.name}</h4>
-              <p className="price">Ksh {item.price}</p>
+              <h4 data-testid="cart-item-name">{item.name}</h4>
+              <p className="price" data-testid="cart-item-price">Ksh {item.price}</p>
 
               <div className="quantity-controls">
                 <button
@@ -61,7 +61,7 @@ export default function Cart() {
                 <button
                   onClick={() =>
                     updateCartQuantity(item.id, item.quantity + 1)
-                  }
+                  } 
                 >
                   +
                 </button>
@@ -69,7 +69,7 @@ export default function Cart() {
             </div>
 
             <div className="cart-item-actions">
-              <p className="item-total">
+              <p className="item-total" data-testid="cart-item-total">
                 Ksh {(item.price * item.quantity).toFixed(2)}
               </p>
               <button
@@ -94,7 +94,7 @@ export default function Cart() {
 
         <div className="summary-row">
           <span>Total</span>
-          <strong>Ksh {totalPrice.toFixed(2)}</strong>
+          <strong data-testid="cart-final-total">Ksh {totalPrice.toFixed(2)}</strong>
         </div>
 
         <button className="checkout-btn" onClick={handleCheckout}>

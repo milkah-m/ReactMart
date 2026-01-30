@@ -9,7 +9,7 @@
 
 .about-content {
   max-width: 900px;
-  background: rgb(3, 71, 37);
+  background: #e6f3ea; /* much lighter green background */
   padding: 3.5rem;
   border-radius: 26px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.1);
@@ -18,18 +18,19 @@
 
 .about-content h1 {
   font-size: 3rem;
-  color: #08995a;
+  color: #1f6f43; /* darker green text for contrast */
   margin-bottom: 1rem;
 }
 
 .about-content .lead {
   font-size: 1.2rem;
-  color:#08995a;
+  color: #184d36; /* slightly muted green for readability */
   margin-bottom: 2rem;
 }
 
 .about-content p {
   font-size: 1.05rem;
   line-height: 1.7;
+  color: #184d36; /* match the lead text for consistency */
   margin-bottom: 1.4rem;
 }
