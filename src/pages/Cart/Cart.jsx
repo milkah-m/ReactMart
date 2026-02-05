@@ -36,10 +36,40 @@ export default function Cart() {
   }
 
   return (
+<<<<<<< HEAD
+    <div className="cart-page">
+      {cartItems.length === 0 ? (
+        <div className="empty-cart">
+          <h4>Ready when you are</h4>
+          <p>Your cart will update as soon as you add your favorite products</p>
+          <button onClick={() => navigate("/shop")}>
+            Start Shopping
+          </button>
+        </div>
+      ) : (
+        <div className="cart-items">
+          {cartItems.map(item => (
+            <div key={item.id} className="singular-cart-item">
+              <img
+                src={item.image}
+                alt={item.name}
+                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+              />
+<<<<<<< HEAD
+=======
+    <div className="cart-item-details">
+  <h4 className="cart-item-name" data-testid="cart-item-name">{item.name}</h4>
+  <p className="cart-item-price">
+    ${ (item.price * item.quantity).toFixed(2) }
+  </p>
+</div>
+>>>>>>> fad0fd4ab75a97e67b3603c311443cfde4435b42
+=======
     <main className="cart-page">
       {/* Cart items section */}
       <section className="cart-items">
         <h1>Your Cart</h1>
+>>>>>>> 6e3e1c8c2a774d008c141b1fcfc4cfc35e2fef68
 
         {cartItems.map((item) => (
           <div key={item.id} className="cart-item">
